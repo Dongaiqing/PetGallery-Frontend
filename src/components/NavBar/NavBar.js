@@ -31,6 +31,7 @@ export default class NavBar extends Component{
         this.searchFieldOnChange = this.searchFieldOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.signOut = this.signOut.bind(this);
+        this.onAvatarClicked = this.onAvatarClicked.bind(this);
     }
 
     componentDidMount() {
@@ -45,7 +46,10 @@ export default class NavBar extends Component{
 
     }
 
-
+    onAvatarClicked() {
+        window.location.href =  `../#/profile/${this.usrID}`;
+        window.location.reload();
+    }
 
     componentWillReceiveProps(nextProps, nextContext) {
         try {
@@ -186,7 +190,7 @@ export default class NavBar extends Component{
                     {
                         window.localStorage.getItem('token') ? 
                             <div className='nav-item-right-img'>
-                                <Link to={`/profile/${this.usrID}`} >
+                                <a onClick={this.onAvatarClicked} >
                                     <div className='nav-item-avatar' style={
                                         { 
                                             opacity: 1,
@@ -198,7 +202,7 @@ export default class NavBar extends Component{
                                             <FontAwesomeIcon icon='home'></FontAwesomeIcon>
                                         </div>
                                     </div>
-                                </Link>
+                                </a>
                                 <a onClick={this.signOut} >
                                     <div className='nav-item-avatar'>
                                         <div id='sign-out' className='nav-avatar-mask'>
