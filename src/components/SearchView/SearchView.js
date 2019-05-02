@@ -25,7 +25,7 @@ import Grow from '@material-ui/core/Grow';
  * https://material-ui.com/lab/slider/
  * https://www.npmjs.com/package/rc-slider
  */
-const API_URL = 'https://cors-anywhere.herokuapp.com/http://pet-gallery.herokuapp.com/api';
+const API_URL = 'http://pet-gallery.herokuapp.com/api';
 let LOGIN_TOKEN = undefined;
 
 const categoryOptions = ['Cat', 'Dog'];
@@ -33,7 +33,7 @@ const categoryOptions = ['Cat', 'Dog'];
 const catBreedOptions = ['Siamese', 'Persian', 'Maine Coon','Ragdoll', 'Bengal', 'Abyssinian','Birman',
   'Oriental Shorthair', 'Sphynx', 'Devon Rex','Himalayan',  'American Shorthair'];
 
-const dogBreedOptions = ['Retrievers','German Shepherd Dogs','American Bobtail Cat', 'French Bulldogs',
+const dogBreedOptions = ['Retrievers','German Shepherd Dogs','American Bobtail Dog', 'French Bulldogs',
   'Bulldogs', 'Beagles', 'Poodles', 'Rottweilers', 'German Shorthaired', 'Yorkshire Terriers', 'Boxers', 'Dachshunds'];
 
 const catYears = ['Kitten', 'Young', 'Adult', 'Senior'];
@@ -193,7 +193,7 @@ export default class SearchView extends Component {
     let petDivs = this.state.data.map( (item, idx)=> {
       // we have to filter out some data first
       // we also need to save the location info for the pet
-      if (item.age > 0) {
+      if (item.age >= 0) {
         return(<ImageCell
           key={idx}
           name={item.name}

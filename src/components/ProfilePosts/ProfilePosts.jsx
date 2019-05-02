@@ -19,7 +19,7 @@ import axios from "axios/index";
 import Button from '@material-ui/core/Button/index';
 import InputAdornment from "@material-ui/core/InputAdornment";
 
-const API_URL = "https://cors-anywhere.herokuapp.com/http://pet-gallery.herokuapp.com/api/";
+const API_URL = "http://pet-gallery.herokuapp.com/api/";
 
 // const API_URL = "http://localhost:4000/api/";
 
@@ -39,7 +39,7 @@ class ProfilePosts extends Component{
             energyLevel : [ 'low', 'medium', 'high' ],
             catBreed : ['Siamese', 'Persian', 'Maine Coon','Ragdoll', 'Bengal', 'Abyssinian','Birman',
                 'Oriental Shorthair', 'Sphynx', 'Devon Rex','Himalayan',  'American Shorthair'],
-            dogBreed: ['Retrievers','German Shepherd Dogs','American Bobtail Cat', 'French Bulldogs',
+            dogBreed: ['Retrievers','German Shepherd Dogs','American Bobtail Dog', 'French Bulldogs',
                 'Bulldogs', 'Beagles', 'Poodles', 'Rottweilers', 'German Shorthaired', 'Yorkshire Terriers', 'Boxers', 'Dachshunds'],
             genderSelection: ['Male','Female'],
             userId : this.props.userId,
@@ -199,13 +199,14 @@ class ProfilePosts extends Component{
         else if (inputProps.userId !== "" && inputProps.userId !== null && inputProps.isFeatured){
 
             if (inputProps.posts === undefined || inputProps.posts === null || inputProps.posts.length === 0) {
-                const grid =
-                    <div className={styles.potsNew}>
-                        <Fab size="large" color="primary" aria-label="Add">
-                            Empty
-                        </Fab>
-                    </div>
-                this.setState({gridItems:grid})
+                // const grid =
+                //     <div className={styles.potsNew}>
+                //         <Fab size="large" color="primary" aria-label="Add">
+                //             Empty
+                //         </Fab>
+                //     </div>
+                // this.setState({gridItems:grid})
+                this.setState({gridItems:[]});
                 return;
             }
 
